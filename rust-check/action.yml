@@ -1,0 +1,30 @@
+name: 'Rust Check'
+description: 'Runs build, test, fmt, and clippy checks on a Rust project'
+inputs:
+  working-directory:
+    description: 'Directory to run steps in'
+    required: false
+    default: './'
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/checkout@v2
+    - name: Check formatting
+      run: cargo fmt -- --check
+      shell: bash
+      working-directory: ${{ inputs.working-directory }}
+    - name: Run cargo build
+      run: cargo build --verbose
+      shell: bash
+      working-directory: ${{ inputs.working-directory }}
+    - name: Install clippy
+      run: rustup component add clippy
+      shell: bash
+    - name: Run cargo clippy
+      run: cargo clippy --all-features
+      shell: bash
+      working-directory: ${{ inputs.working-directory }}
+    - name: Run cargo test
+      run: cargo test --verbose -- --nocapture
+      shell: bash
+      working-directory: ${{ inputs.working-directory }}
