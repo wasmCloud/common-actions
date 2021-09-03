@@ -18,6 +18,7 @@ runs:
         curl -s https://packagecloud.io/install/repositories/wasmCloud/core/script.deb.sh | sudo bash
         sudo apt install wash
       shell: bash
+
     - name: Install cross
       if: ${{ inputs.cross }}
       run: cargo install --git https://github.com/brooksmtownsend/cross --branch add-darwin-target --force # Installing from feature branch until PR merged, thank you @ChrisRx
