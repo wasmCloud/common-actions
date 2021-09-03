@@ -35,8 +35,7 @@ runs:
 
     - name: Run NATS if specified
       if: ${{ inputs.with-nats }}
-      using: wasmcloud/common-actions/run-nats@main
-      shell: bash
+      uses: wasmcloud/common-actions/run-nats@main
 
     - name: Run cargo test
       run: cargo test --verbose -- --nocapture
