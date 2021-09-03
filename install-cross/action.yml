@@ -1,0 +1,9 @@
+name: 'Install Cross'
+description: 'Common action to install the `cross` tool'
+inputs:
+runs:
+  using: "composite"
+  steps:
+    - name: Install cross
+      run: cargo install --git https://github.com/brooksmtownsend/cross --branch add-darwin-target --force # Installing from feature branch until PR merged, thank you @ChrisRx
+      shell: bash
