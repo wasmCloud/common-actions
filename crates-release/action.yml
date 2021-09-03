@@ -14,7 +14,7 @@ runs:
     - uses: actions/checkout@v2
     - name: Cargo login
       env:
-        CRATES_TOKEN: ${{ inputs.CRATES_PUBLISH_TOKEN }}
+        CRATES_TOKEN: ${{ inputs.crates-token }}
       run: cargo login ${{ env.CRATES_TOKEN }}
       shell: bash
     - name: Cargo publish
