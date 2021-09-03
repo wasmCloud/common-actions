@@ -1,6 +1,5 @@
 name: 'Install wash'
 description: 'Common action to install the `wash` tool'
-inputs:
 runs:
   using: "composite"
   steps:
