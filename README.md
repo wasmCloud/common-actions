@@ -1,7 +1,7 @@
 # Common Actions
 Common GitHub actions for use across wasmCloud repositories
 
-| Name | Purpose | Options |
+| Name | Purpose | Inputs |
 |---|---|---|
 | [crates-release](./crates-release) | Authenticates with crates.io and publishes a crate. | `working-directory`: Used to define the path of the crate, useful if it's not located at the root of a repository (default `./`)<br>`crates-token`: Authentication token for crates.io (required)|
 | [install-cross](./install-cross) | Installs the cross-compilation tool `cross` from a branch that supports macos targets | N/A |
