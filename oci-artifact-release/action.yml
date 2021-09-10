@@ -33,5 +33,4 @@ runs:
         WASH_REG_USER: ${{ inputs.oci-username }}
         WASH_REG_PASSWORD: ${{ inputs.oci-password }}
       run: wash reg push ${{inputs.oci-url }}/${{ inputs.oci-repository }}:${{ inputs.oci-version}} ${{ inputs.artifact-path }} -o json
-      working-directory: ${{ inputs.working-directory }}
       shell: bash
