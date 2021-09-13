@@ -5,6 +5,10 @@ inputs:
     description: 'Directory to run steps in'
     required: false
     default: './'
+  test-options:
+    description: 'Flags to pass to `cargo test`, before the `--`'
+    required: false
+    default: '--verbose'
 runs:
   using: "composite"
   steps:
@@ -30,6 +34,6 @@ runs:
       working-directory: ${{ inputs.working-directory }}
 
     - name: Run cargo test
-      run: cargo test --verbose -- --nocapture
+      run: cargo test ${{ inputs.test-options }} -- --nocapture
       shell: bash
       working-directory: ${{ inputs.working-directory }}
