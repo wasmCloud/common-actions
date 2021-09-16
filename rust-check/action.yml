@@ -20,7 +20,7 @@ runs:
       working-directory: ${{ inputs.working-directory }}
 
     - name: Run cargo build
-      run: cargo build --verbose
+      run: cargo build
       shell: bash
       working-directory: ${{ inputs.working-directory }}
 
