@@ -12,11 +12,17 @@ runs:
   using: "composite"
   steps:
     - uses: actions/checkout@v2
+
+    - name: Update rust
+      run: rustup update
+      shell: bash
+
     - name: Cargo login
       env:
         CRATES_TOKEN: ${{ inputs.crates-token }}
       run: cargo login ${{ env.CRATES_TOKEN }}
       shell: bash
+
     - name: Cargo publish
       run: cargo publish --no-verify
       shell: bash
