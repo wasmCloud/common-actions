@@ -5,6 +5,10 @@ inputs:
     description: 'Directory to run steps in'
     required: false
     default: './'
+  build-options:
+    description: 'Flags to pass to `cargo build`, e.g. `--release`'
+    required: false
+    default: ''
   test-options:
     description: 'Flags to pass to `cargo test`, before the `--`'
     required: false
@@ -24,7 +28,7 @@ runs:
       working-directory: ${{ inputs.working-directory }}
 
     - name: Run cargo build
-      run: cargo build
+      run: cargo build ${{ inputs.build-options }}
       shell: bash
       working-directory: ${{ inputs.working-directory }}
 
