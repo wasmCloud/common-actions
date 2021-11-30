@@ -9,6 +9,10 @@ inputs:
     description: 'Flags to pass to `cargo build`, e.g. `--release`'
     required: false
     default: ''
+  clippy-options:
+    description: 'Flags to pass to `cargo clippy`, default: `--all-features`'
+    required: false
+    default: '--all-features'
   test-options:
     description: 'Flags to pass to `cargo test`, before the `--`'
     required: false
@@ -37,7 +41,7 @@ runs:
       shell: bash
 
     - name: Run cargo clippy
-      run: cargo clippy --all-features
+      run: cargo clippy ${{ inputs.clippy-options }}
       shell: bash
       working-directory: ${{ inputs.working-directory }}
 
