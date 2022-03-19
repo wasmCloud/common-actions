@@ -10,11 +10,11 @@ runs:
   steps:
     - name: Install NATS
       run: |
-        curl -L https://github.com/nats-io/nats-server/releases/download/v2.3.4/nats-server-v2.3.4-linux-amd64.zip -o nats-server.zip
+        curl -L https://github.com/nats-io/nats-server/releases/download/v2.7.2/nats-server-v2.7.2-linux-amd64.zip -o nats-server.zip
         unzip nats-server.zip -d nats-server
       shell: bash
 
     - name: Run NATS with options
-      run: ./nats-server/nats-server-v2.3.4-linux-amd64/nats-server ${{ inputs.options }} &
+      run: ./nats-server/nats-server-v2.7.2-linux-amd64/nats-server ${{ inputs.options }} &
       shell: bash
 
