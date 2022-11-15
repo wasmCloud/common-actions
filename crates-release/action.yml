@@ -17,6 +17,10 @@ runs:
       run: rustup update
       shell: bash
 
+    - name: Install protobuf compiler
+      run: apt-get install -y protobuf-compiler
+      shell: bash
+
     - name: Cargo login
       env:
         CRATES_TOKEN: ${{ inputs.crates-token }}
