@@ -26,6 +26,15 @@ runs:
       run: rustup update
       shell: bash
 
+    - name: Print versions
+      run: |
+        uname -a
+        rustup check
+        cargo --version
+        rustc --version
+        rustfmt --version
+      shell: bash
+
     - name: Check formatting
       run: cargo fmt -- --check
       shell: bash
